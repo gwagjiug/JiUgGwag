@@ -1,0 +1,18 @@
+.header-section {
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  color: lightblue;
+  height: 10rem;
+  font-size: 30px;
+}
+.header-section:hover {
+  background-color: aqua;
+  border-radius: 30%;
+  color: black;
+}
+.footer-section {
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+}
