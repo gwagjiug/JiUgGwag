@@ -1,0 +1,230 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+.banner-img {
+  position: relative;
+  /* 자신의 원래 위치기준 */
+  width: 100%;
+  height: 100vh;
+}
+
+/* header section */
+
+.nav-topbarSection {
+  z-index: 10;
+  position: fixed; //뷰포트 기준, 스크롤 시에도 유지됨.
+  background-color: rgba(255, 255, 255, 0);
+  width: 100%;
+  display: flex; /* 자식 요소들을 가로로 배치 */
+  justify-content: space-between; /* 왼쪽과 오른쪽을 양 끝에 배치 */
+  align-items: center; /* 세로 중앙 정렬 */
+}
+
+.nav-topbarLeft {
+  height: 35px;
+  padding: 0;
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  list-style-type: none;
+}
+
+.nav-topbarRight {
+  width: 50%;
+  height: 35px;
+  display: flex;
+  justify-content: flex-end;
+  list-style-type: none;
+}
+.nav-logoImg {
+  width: 60px;
+  margin: 0 0 0 5px;
+}
+.nav-item a {
+  font-size: 15px;
+  color: white;
+  margin: 0 0 0 15px;
+  text-decoration: none; /* 밑줄 제거 */
+}
+.nav-item a:hover {
+  color: black; /* 호버 시 색상 변경 */
+}
+.nav-item i {
+  color: white;
+  margin: 0 15px 0 0; /* 위, 오른쪽, 아래, 왼쪽 순서 */
+}
+.nav-item i:hover {
+  color: black;
+}
+
+/* header section */
+
+/* 바로가기 section */
+.link-section {
+  position: absolute; /*부모 혹은 body 기준(banner-section)*/
+  right: 20px; /* 배너의 오른쪽 끝에서 20px 떨어진 위치 */
+  bottom: 20px; /* 배너의 하단 끝에서 20px 떨어진 위치 */
+  z-index: 10; /* 배너 이미지보다 위에 위치시키기 위한 값 */
+  background-color: rgba(255, 255, 255, 0.8); /* 약간의 투명한 배경 */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.link-section a {
+  color: black; /* 링크 텍스트 색상 */
+  text-decoration: none; /* 링크의 밑줄 제거 */
+}
+.link-section i {
+  size: 30px;
+}
+/* 바로가기 section */
+
+/* pharase section */
+.phrase-section {
+  padding: 0px 10px;
+  position: absolute; /*부모 혹은 body 기준(banner-section)*/
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.8);
+  right: 20px; /* 배너의 오른쪽 끝에서 20px 떨어진 위치 */
+  bottom: 80px; /* 배너의 하단 끝에서 80px 떨어진 위치 */
+  border-radius: 6%;
+}
+
+.phrase-section h3 {
+  color: #0d92f4;
+}
+/* pharase section */
+
+/* photo 섹션 */
+.photo-container-section {
+  overflow: hidden;
+  /* 넘치는 콘텐츠 숨김, 나머지는 스크롤될 때 보이게 함 */
+  white-space: nowrap;
+  /* 모든 콘텐츠 한 줄로 유지 */
+  margin-top: 50px;
+}
+
+.photo-carousel {
+  display: inline-block;
+  /* 요소를 인라인 블록취급하는 속성 */
+  animation: infiniteScroll 20s linear infinite;
+  /* 애니메이션 효과 설정 , 한 번 완전히 실행되는 시간 20s, 무한반복 */
+}
+
+.photo-container-section h3 {
+  color: white;
+  margin-left: 10px;
+}
+
+.photo-img1,
+.photo-img2 {
+  display: inline-block;
+}
+
+.photo-img1 img,
+.photo-img2 img {
+  margin-top: 30px;
+  margin-left: 10px;
+  width: 200px;
+  height: auto;
+  transition: transform 0.3s ease;
+  /* 이미지에 트랜스폼 효과가 적용될 때 0.3초 동안 부드럽게 발생함 */
+  background-color: white;
+  border-radius: 10%;
+}
+
+@keyframes infiniteScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+/* 처음에는 img1이 화면에 있고, img2는 오른쪽에 존재하게 됨.
+애니메이션이 진행되면서 img1이 왼쪽으로 50%만큼 이동하고, 그 뒤로 img2 등장
+화면에 img2가 완전히 보이게 되면 다시 img1이 보이면서 무한반복 */
+
+.photo-img1 img:hover,
+.photo-img2 img:hover {
+  transform: scale(1.1); /* 마우스 오버 시 이미지를 10% 확대 */
+}
+.photo-carousel:hover {
+  animation-play-state: paused;
+  /* 마우스 오버시 스크롤 잠시 정지 */
+}
+
+/* topPhoto 섹션 */
+
+.legendPoketmon-container-section {
+  margin-top: 50px;
+  margin-bottom: 10%;
+}
+
+.legend-photo-section {
+  position: relative;
+  overflow: hidden;
+  padding: 0 40px;
+  /*양쪽 화살표를 배치하기 위한 좌우 padding 값 설정*/
+}
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 30px 0;
+  scroll-behavior: smooth;
+  /* 자식요소들을 가로로 배치하고, 가로 스크롤을 자동으로 표시.
+  ios 기기 및 데스크탑에서의 부드러운 스크롤링 지원하는 속성과 상하 여백  */
+}
+
+.scroll-container img {
+  flex: 0 0 auto;
+  /* 크기고정, 크기유지 */
+  width: 200px;
+  height: auto;
+  margin-right: 10px;
+  background-color: white;
+  border-radius: 10%;
+  scroll-snap-align: center;
+}
+
+.legendPoketmon-container-section h3 {
+  color: white;
+  margin-left: 10px;
+}
+
+.scroll-arrow {
+  border-radius: 10%;
+  height: 200px;
+  position: absolute;
+  /* 부모 요소인 legend-photo-section 기준 */
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(104, 98, 98, 0.5);
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  z-index: 10;
+  display: flex; /* Flexbox 사용 */
+  align-items: center; /* 세로 중앙 정렬 */
+}
+
+.left-arrow {
+  left: 0;
+}
+
+.right-arrow {
+  right: 0;
+}
+
+/* Hide scrollbar */
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
