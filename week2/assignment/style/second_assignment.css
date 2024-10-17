@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  --main-gray: #e4e0e1;
+  --main-brown: #d6c0b3;
+  --btn-brown: #ab886d;
+  --btn-DeepBrown: #493628;
+}
+body {
+  background-color: var(--main-gray);
+  margin: 0;
+}
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 20rem);
+}
+
+.header__section {
+  display: grid;
+  background-color: var(--main-brown);
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 5.5rem;
+  padding: 0 2rem;
+}
+
+.header__left {
+  justify-self: start;
+  align-self: center;
+}
+.header__center {
+  justify-self: center;
+  align-self: center;
+}
+.header__right {
+  justify-self: end;
+  align-self: center;
+}
+
+.filter__section {
+  margin: 5rem auto;
+  width: 60rem;
+  height: 30rem;
+  background-color: var(--main-brown);
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.filter__row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 각 행에 최대 3개 열 */
+  gap: 1rem;
+}
+
+.filter__name,
+.filter__ename {
+  grid-column: span 3;
+  display: flex;
+  align-items: center;
+}
+
+label {
+  font-weight: 700;
+  display: flex;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  width: 6rem;
+  height: 4rem;
+  text-align: center;
+  min-width: 5rem;
+  background-color: var(--main-gray);
+  font-size: 0.7rem;
+  padding: 2%;
+}
+input {
+  height: 4rem;
+  flex: 1;
+  border: none;
+  font-size: 0.7rem;
+  padding: 2%;
+}
+input::placeholder {
+  font-size: 0.7rem;
+}
+
+.filter__gsr {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.filter__gsr select {
+  font-size: 0.7rem;
+  flex: 1;
+  height: 4rem;
+  border: none;
+  padding: 2%;
+}
+
+.filter__SecondRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.filter__week1,
+.filter__week2 {
+  display: flex;
+  align-items: center;
+}
+
+.filter__ThirdRow {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.reset__btn,
+.search__btn {
+  align-items: center;
+  display: flex;
+}
+
+.reset__btn button {
+  background-color: var(--btn-brown);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  flex: 1;
+  height: 3rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+.search__btn button {
+  background-color: var(--btn-DeepBrown);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  flex: 1;
+  height: 3rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.reset__btn button:hover,
+.search__btn button:hover {
+  filter: brightness(0.85); /* 색상을 약간 어둡게 */
+}
