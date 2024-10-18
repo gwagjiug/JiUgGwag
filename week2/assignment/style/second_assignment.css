@@ -17,7 +17,7 @@ body {
 main {
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 20rem);
+  height: calc(100vh - 15rem);
 }
 
 .header__section {
@@ -159,6 +159,7 @@ input::placeholder {
   margin: var(--section-margin);
   width: var(--section-width);
   border: none;
+  padding-bottom: 8rem;
 }
 .table__edit {
   display: flex;
@@ -179,6 +180,11 @@ input::placeholder {
 }
 .table__delete {
   background-color: var(--btn-brown);
+}
+
+.table__add:hover,
+.table__delete:hover {
+  filter: brightness(0.85);
 }
 
 .table__content {
