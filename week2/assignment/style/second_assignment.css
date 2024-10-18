@@ -6,13 +6,15 @@
   --main-brown: #d6c0b3;
   --btn-brown: #ab886d;
   --btn-DeepBrown: #493628;
+  --section-margin: 3rem auto;
+  --section-width: 60rem;
+  --thBackColor: #ecdfcc;
 }
 body {
   background-color: var(--main-gray);
   margin: 0;
 }
 main {
-  display: flex;
   justify-content: center;
   align-items: center;
   height: calc(100vh - 20rem);
@@ -40,8 +42,8 @@ main {
 }
 
 .filter__section {
-  margin: 5rem auto;
-  width: 60rem;
+  margin: var(--section-margin);
+  width: var(--section-width);
   height: 30rem;
   background-color: var(--main-brown);
   display: grid;
@@ -150,4 +152,51 @@ input::placeholder {
 .reset__btn button:hover,
 .search__btn button:hover {
   filter: brightness(0.85); /* 색상을 약간 어둡게 */
+}
+
+/* 테이블 섹션 */
+.table__section {
+  margin: var(--section-margin);
+  width: var(--section-width);
+  border: none;
+}
+.table__edit {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+.table__edit button {
+  width: 6rem;
+  height: 2rem;
+  justify-content: center;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.table__add {
+  background-color: var(--btn-DeepBrown);
+}
+.table__delete {
+  background-color: var(--btn-brown);
+}
+
+.table__content {
+  margin-top: 1rem;
+}
+
+.table__header {
+  color: white;
+  font-weight: 800;
+  background-color: var(--btn-brown);
+}
+.table__body {
+  background-color: white;
+}
+th,
+td {
+  width: 10rem;
+  height: 3rem;
+  text-align: center;
+  border: 1px solid var(--thBackColor);
 }

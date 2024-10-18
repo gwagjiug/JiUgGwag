@@ -10,7 +10,8 @@
     ></script>
     <link rel="stylesheet" href="../style/second_assignment.css" />
     <link rel="stylesheet" href="../style/reset.css" />
-    <script type="module" src="../JavaScript/index.js"></script>
+    <script type="module" src="../JavaScript/index.js" defer></script>
+    <script type="module" src="../data/members.js" defer></script>
   </head>
   <body>
     <header>
@@ -21,6 +22,7 @@
       </section>
     </header>
     <main>
+      <!-- 필터섹션 -->
       <section class="filter__section">
         <div class="filter__row">
           <div class="filter__name">
@@ -92,6 +94,33 @@
           </div>
         </div>
       </section>
+      <!-- 필터섹션 끝 -->
+      <!-- 테이블 섹션 -->
+      <section class="table__section">
+        <div class="table__edit">
+          <button class="table__delete">선택삭제</button>
+          <button class="table__add">추가</button>
+        </div>
+        <div class="table__content">
+          <table>
+            <thead class="table__header">
+              <tr>
+                <th scope="col"><input type="checkbox" id="check_all" /></th>
+                <th scope="col">이름</th>
+                <th scope="col">영어이름</th>
+                <th scope="col">GitHub</th>
+                <th scope="col">성별</th>
+                <th scope="col">역할</th>
+                <th scope="col">1주차 금잔디</th>
+                <th scope="col">2주차 금잔디</th>
+              </tr>
+            </thead>
+            <!-- table 헤드 -->
+            <tbody class="table__body"></tbody>
+          </table>
+        </div>
+      </section>
+      <!-- 테이블 섹션 끝 -->
     </main>
   </body>
 </html>
