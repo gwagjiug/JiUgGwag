@@ -2,6 +2,7 @@ const membersData = JSON.parse(localStorage.getItem('membersData')) || [];
 const tableBody = document.querySelector('.table__body');
 const searchButton = document.querySelector('.search__btn button');
 const resetButton = document.querySelector('.reset__btn button');
+const deleteButton = document.querySelector('.table__delete');
 
 // 필터 요소 가져오기
 const nameInput = document.getElementById('name');
@@ -13,18 +14,42 @@ const week1Input = document.getElementById('week1');
 const week2Input = document.getElementById('week2');
 const checkAll = document.getElementById('check_all');
 
+//삭베 버튼 이벤트
+
+// 삭제 버튼 이벤트
+deleteButton.addEventListener('click', () => {
+  const checkedBoxes = document.querySelectorAll('.member_checkbox:checked');
+
+  if (checkedBoxes.length === 0) {
+    alert('삭제할 항목을 선택해주세요.');
+    return;
+  }
+
+  if (confirm('선택한 항목을 삭제하시겠습니까?')) {
+    checkedBoxes.forEach((checkbox) => {
+      const row = checkbox.closest('tr');
+      if (row) {
+        row.remove();
+      }
+    });
+
+    // 전체 선택 체크박스 해제
+    checkAll.checked = false;
+  }
+});
+
 // 데이터 렌더링 함수
 function renderTable(data) {
-  tableBody.innerHTML = ''; // 기존 데이터 초기화
-  data.forEach((member) => {
+  tableBody.innerHTML = '';
+  data.forEach((member, index) => {
     const row = document.createElement('tr');
     row.innerHTML = `
-      <td><input type="checkbox" class="member_checkbox" /></td>
+      <td><input type="checkbox" class="member_checkbox" data-index="${index}" /></td>
       <td>${member.name}</td>
       <td>${member.englishName}</td>
       <td>
-        <a href="https://github.com/${member.github}" target="_blank" 
-           rel="noopener noreferrer" style="color: black; text-decoration: none;">
+        <a href="https://github.com/${member.github}" target="_blank"
+            rel="noopener noreferrer" style="color: black; text-decoration: none;">
           ${member.github}
         </a>
       </td>
@@ -78,4 +103,4 @@ resetButton.addEventListener('click', () => {
 });
 
 // 초기 테이블 렌더링
-renderTable(membersData);
+window.addEventListener('load', renderTable(membersData));
