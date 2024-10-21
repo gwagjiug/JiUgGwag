@@ -73,11 +73,15 @@ function filterMembers() {
 }
 
 function addEventListeners() {
+  elements.modal.addEventListener('click', (e) => e.stopPropagation());
   // 모달 열기 및 닫기
   elements.tableAddBtn.addEventListener('click', openModal);
   elements.modalCloseBtn.addEventListener('click', closeModal);
-  elements.modalBackdrop.addEventListener('click', () => {
-    closeModal();
+  elements.modalBackdrop.addEventListener('click', (e) => {
+    console.log(e.target);
+    if (e.target === elements.modalBackdrop) {
+      closeModal();
+    }
   });
 
   elements.searchButton.addEventListener('click', filterMembers);
@@ -91,7 +95,7 @@ function addEventListeners() {
 
 function openModal() {
   elements.modalBackdrop.classList.remove('hidden');
-  elements.modal.showModal();
+  elements.modal.show();
 }
 
 function closeModal() {

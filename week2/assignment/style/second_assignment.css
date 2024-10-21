@@ -208,10 +208,14 @@ td {
 }
 
 /* Modal */
-dialog {
-  width: 30%;
+.addModal {
+  position: fixed;
+  margin-top: 6rem;
+  width: 30rem;
   height: 45rem;
+  z-index: 1;
 }
+
 .modalBackDrop {
   position: fixed;
   top: 0;
@@ -219,9 +223,6 @@ dialog {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 1000;
 }
 .hidden {
