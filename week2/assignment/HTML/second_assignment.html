@@ -122,7 +122,7 @@
       </section>
       <!-- 테이블 섹션 끝 -->
     </main>
-    <!--  -->
+    <!-- modal -->
     <div class="modalBackDrop hidden">
       <div class="modalWrapper">
         <dialog id="addModal" class="addModal">
@@ -149,9 +149,18 @@
                 placeholder="영문 이름을 입력하세요"
               />
             </div>
+            <div class="modalInput">
+              <label for="modalGithub">깃허브</label>
+              <input
+                type="text"
+                id="modalGithub"
+                class="inputGithub"
+                placeholder="깃허브 ID를 입력해주세요"
+              />
+            </div>
             <div class="modalSelect">
               <label for="modalGender">성별</label>
-              <select name="modalGender" id="modalGender">
+              <select name="modalGender" id="modalGender" class="selectGender">
                 <option value="" selected disabled>성별 선택</option>
                 <option value="male">남성</option>
                 <option value="female">여성</option>
@@ -159,7 +168,7 @@
             </div>
             <div class="modalSelect">
               <label for="modalRole">역할</label>
-              <select name="modalRole" id="modalRole">
+              <select name="modalRole" id="modalRole" class="selectRole">
                 <option value="" selected disabled>YB/OB 선택</option>
                 <option value="YB">YB</option>
                 <option value="OB">OB</option>
