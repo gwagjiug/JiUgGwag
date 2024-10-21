@@ -4,6 +4,7 @@ const searchButton = document.querySelector('.search__btn button');
 const resetButton = document.querySelector('.reset__btn button');
 const deleteButton = document.querySelector('.table__delete');
 const tableAddBtn = document.querySelector('.table__add');
+const modalBackdrop = document.querySelector('.modalBackDrop');
 
 // 필터 요소 가져오기
 const nameInput = document.getElementById('name');
@@ -104,10 +105,17 @@ resetButton.addEventListener('click', () => {
 });
 
 tableAddBtn.addEventListener('click', (e) => {
+  modalBackdrop.classList.remove('hidden');
   modal.showModal();
 });
 
 modalCloseBtn.addEventListener('click', () => {
+  modalBackdrop.classList.add('hidden');
+  modal.close();
+});
+
+modalBackdrop.addEventListener('click', (e) => {
+  modalBackdrop.classList.add('hidden');
   modal.close();
 });
 
