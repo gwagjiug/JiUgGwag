@@ -184,6 +184,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 새 멤버 추가
     const newMember = {
+      id:
+        membersData.length > 0
+          ? Math.max(...membersData.map((member) => member.id)) + 1
+          : 1,
       name: modalName.value,
       englishName: modalEname.value,
       github: modalGithub.value,
