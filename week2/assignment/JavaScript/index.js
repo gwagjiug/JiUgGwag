@@ -3,6 +3,7 @@ const tableBody = document.querySelector('.table__body');
 const searchButton = document.querySelector('.search__btn button');
 const resetButton = document.querySelector('.reset__btn button');
 const deleteButton = document.querySelector('.table__delete');
+const tableAddBtn = document.querySelector('.table__add');
 
 // 필터 요소 가져오기
 const nameInput = document.getElementById('name');
@@ -13,8 +14,8 @@ const roleSelect = document.getElementById('role');
 const week1Input = document.getElementById('week1');
 const week2Input = document.getElementById('week2');
 const checkAll = document.getElementById('check_all');
-
-//삭베 버튼 이벤트
+const modal = document.getElementById('addModal');
+const modalCloseBtn = document.getElementById('modalCloseBtn');
 
 // 삭제 버튼 이벤트
 deleteButton.addEventListener('click', () => {
@@ -102,5 +103,12 @@ resetButton.addEventListener('click', () => {
   renderTable(membersData); // 전체 데이터 렌더링
 });
 
-// 초기 테이블 렌더링
-window.addEventListener('load', renderTable(membersData));
+tableAddBtn.addEventListener('click', (e) => {
+  modal.showModal();
+});
+
+modalCloseBtn.addEventListener('click', () => {
+  modal.close();
+});
+
+renderTable(membersData);

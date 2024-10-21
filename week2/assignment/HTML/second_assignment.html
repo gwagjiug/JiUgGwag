@@ -122,5 +122,69 @@
       </section>
       <!-- 테이블 섹션 끝 -->
     </main>
+    <!--  -->
+    <dialog id="addModal">
+      <div class="modalHeader">
+        <h2>새 멤버추가🌊</h2>
+        <button type="button" id="modalCloseBtn">X</button>
+      </div>
+      <form method="dialog">
+        <div class="modalInput">
+          <label for="modalName">이름</label>
+          <input
+            type="text"
+            id="modalName"
+            class="inputName"
+            placeholder="이름을 입력하세요"
+          />
+        </div>
+        <div class="modalInput">
+          <label for="modalEname">영문이름</label>
+          <input
+            type="text"
+            id="modalEname"
+            class="inputEname"
+            placeholder="영문 이름을 입력하세요"
+          />
+        </div>
+        <div class="modalSelect">
+          <label for="modalGender">성별</label>
+          <select name="modalGender" id="modalGender">
+            <option value="" selected disabled>성별 선택</option>
+            <option value="male">남성</option>
+            <option value="female">여성</option>
+          </select>
+        </div>
+        <div class="modalSelect">
+          <label for="modalRole">역할</label>
+          <select name="modalRole" id="modalRole">
+            <option value="" selected disabled>YB/OB 선택</option>
+            <option value="YB">YB</option>
+            <option value="OB">OB</option>
+          </select>
+        </div>
+        <div class="modalInput">
+          <label for="modalWeek1">1주차 금잔디조</label>
+          <input
+            type="text"
+            id="modalWeek1"
+            class="inputWeek1"
+            placeholder="1주차 금잔디조를 입력해주세요"
+          />
+        </div>
+        <div class="modalInput">
+          <label for="modalWeek2">2주차 금잔디조</label>
+          <input
+            type="text"
+            id="modalWeek2"
+            class="inputWeek2"
+            placeholder="2주차 금잔디조를 입력해주세요"
+          />
+        </div>
+        <div class="modalAddBtn">
+          <button id="addDataBtn" class="addDataBtn">추가</button>
+        </div>
+      </form>
+    </dialog>
   </body>
 </html>

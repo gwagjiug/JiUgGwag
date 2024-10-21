@@ -206,3 +206,54 @@ td {
   text-align: center;
   border: 1px solid var(--thBackColor);
 }
+
+/* Modal */
+dialog {
+  width: 30%;
+  height: 45rem;
+}
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modalHeader button {
+  height: 2rem;
+  opacity: 0.3;
+  text-align: center;
+}
+.modalInput {
+  display: flex;
+  margin-top: 1rem;
+}
+.modalInput input {
+  border: 1px solid black;
+}
+.modalSelect {
+  display: flex;
+  margin-top: 1rem;
+}
+.modalSelect select {
+  flex: 1;
+}
+
+.modalAddBtn {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.modalAddBtn button {
+  background-color: var(--btn-DeepBrown);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  flex: 1;
+  height: 3rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.modalAddBtn button:hover {
+  filter: brightness(0.85);
+}
