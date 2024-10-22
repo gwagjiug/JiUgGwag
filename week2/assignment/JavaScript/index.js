@@ -71,7 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
         (!elements.nameInput.value ||
           name.includes(elements.nameInput.value)) &&
         (!elements.englishNameInput.value ||
-          englishName.includes(elements.englishNameInput.value)) &&
+          englishName
+            .toLowerCase()
+            .includes(elements.englishNameInput.value.toLowerCase())) &&
         (!elements.githubInput.value ||
           github.includes(elements.githubInput.value)) &&
         (!elements.genderSelect.value ||
