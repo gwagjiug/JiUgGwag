@@ -16,7 +16,13 @@ function Card({ members }) {
         <CardItem key={member.id} className="card">
           <h2>{member.name}</h2>
           <p>{member.englishName}</p>
-          <p>{member.github}</p>
+          <a
+            href={`https://github.com/${member.github}`}
+            target="_blank"
+            className="CardLink"
+          >
+            {member.github}
+          </a>
           <div className="LikeSection">
             <p>{count[index]}</p>
             <button className="LikeBtn" onClick={() => onIncrease(index)}>
@@ -55,6 +61,13 @@ const CardItem = styled.div`
     color: white;
     height: 30px;
     border-radius: 16px;
+  }
+  .CardLink {
+    text-decoration: none;
+    color: black;
+  }
+  .CardLink:hover {
+    color: #37afe1;
   }
 `;
 
