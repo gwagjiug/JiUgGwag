@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     resetButton: document.querySelector('.reset__btn button'),
     deleteButton: document.querySelector('.table__delete'),
     tableAddBtn: document.querySelector('.table__add'),
-    modalBackdrop: document.querySelector('.modalBackDrop'),
+    modalBackdrop: document.querySelector('.modal__backdrop'),
     nameInput: document.getElementById('name'),
     englishNameInput: document.getElementById('ename'),
     githubInput: document.getElementById('github'),
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     week1Input: document.getElementById('week1'),
     week2Input: document.getElementById('week2'),
     checkAll: document.getElementById('check_all'),
-    modal: document.getElementById('addModal'),
+    modal: document.getElementById('add__modal'),
     modalCloseBtn: document.getElementById('modalCloseBtn'),
   };
 
@@ -36,9 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderTable(data) {
     elements.tableBody.innerHTML = data
       .map(
-        (member, index) => `
+        (member) => `
           <tr>
-            <td><input type="checkbox" class="member_checkbox" data-index="${index}" /></td>
+            <td><input type="checkbox" class="member_checkbox" data-id="${member.id}" /></td>
             <td>${member.name}</td>
             <td>${member.englishName}</td>
             <td>
@@ -54,6 +54,19 @@ document.addEventListener('DOMContentLoaded', () => {
           </tr>`
       )
       .join('');
+
+    const memberCheckBoxes = document.querySelectorAll('.member_checkbox');
+    memberCheckBoxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', updateCheckAllStatus);
+    });
+  }
+
+  function updateCheckAllStatus() {
+    const memberCheckBoxes = document.querySelectorAll('.member_checkbox');
+    const allChecked = Array.from(memberCheckBoxes).every(
+      (checkbox) => checkbox.checked
+    );
+    elements.checkAll.checked = allChecked;
   }
 
   function filterMembers() {
@@ -90,11 +103,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function addEventListeners() {
     elements.modal.addEventListener('click', (e) => e.stopPropagation());
-    // 모달 열기 및 닫기
     elements.tableAddBtn.addEventListener('click', openModal);
     elements.modalCloseBtn.addEventListener('click', closeModal);
     elements.modalBackdrop.addEventListener('click', (e) => {
-      console.log(e.target);
       if (e.target === elements.modalBackdrop) {
         closeModal();
       }
@@ -137,22 +148,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function deleteSelectedMembers() {
     const checkedBoxes = document.querySelectorAll('.member_checkbox:checked');
-
     if (checkedBoxes.length === 0) return alert('삭제할 항목을 선택해주세요.');
 
     if (confirm('선택한 항목을 삭제하시겠습니까?')) {
-      const indexesToDelete = Array.from(checkedBoxes).map((checkbox) =>
-        parseInt(checkbox.dataset.index, 10)
+      const idsToDelete = Array.from(checkedBoxes).map((checkbox) =>
+        parseInt(checkbox.dataset.id, 10)
       );
 
-      indexesToDelete
-        .sort((a, b) => b - a)
-        .forEach((index) => membersData.splice(index, 1));
-
+      membersData = membersData.filter(
+        (member) => !idsToDelete.includes(member.id)
+      );
       localStorage.setItem('membersData', JSON.stringify(membersData));
 
       renderTable(membersData);
-
       elements.checkAll.checked = false;
     }
   }
@@ -160,7 +168,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function submitPeople(e) {
     e.preventDefault();
 
-    // 모든 필드가 채워졌는지 확인
     const {
       modalName,
       modalEname,
@@ -184,7 +191,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // 새 멤버 추가
     const newMember = {
       id:
         membersData.length > 0
