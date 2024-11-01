@@ -123,8 +123,8 @@
       <!-- 테이블 섹션 끝 -->
     </main>
     <!-- modal -->
-    <div class="modalBackDrop hidden">
-      <dialog id="addModal" class="addModal">
+    <div class="modal__backdrop hidden">
+      <dialog id="add__modal" class="add__modal">
         <div class="modalHeader">
           <h2>새 멤버추가🌊</h2>
           <button type="button" id="modalCloseBtn">X</button>
@@ -160,7 +160,7 @@
           <div class="modalSelect">
             <label for="modalGender">성별</label>
             <select name="modalGender" id="modalGender" class="selectGender">
-              <option value="" selected disabled>성별 선택</option>
+              <option value="" selected disabled hidden>성별 선택</option>
               <option value="male">남성</option>
               <option value="female">여성</option>
             </select>

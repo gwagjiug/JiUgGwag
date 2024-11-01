@@ -128,25 +128,20 @@ input::placeholder {
   display: flex;
 }
 
-.reset__btn button {
+.reset__btn button,
+.search__btn button {
   background-color: var(--btn-brown);
   border: none;
   border-radius: 5px;
   color: white;
   flex: 1;
   height: 3rem;
-  transition: background-color 0.3s ease;
+  transition: filter 0.3s ease;
   cursor: pointer;
 }
+
 .search__btn button {
   background-color: var(--btn-DeepBrown);
-  border: none;
-  border-radius: 5px;
-  color: white;
-  flex: 1;
-  height: 3rem;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
 }
 
 .reset__btn button:hover,
@@ -208,13 +203,13 @@ td {
 }
 
 /* Modal */
-.addModal {
+.add__modal {
   margin-top: 6rem;
   width: 30rem;
   height: 50rem;
 }
 
-.modalBackDrop {
+.modal__backdrop {
   position: fixed;
   top: 0;
   left: 0;
