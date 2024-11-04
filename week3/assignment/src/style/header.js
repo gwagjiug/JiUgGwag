@@ -44,4 +44,8 @@ export const MainHeader = styled.header`
   .header__timer {
     color: white;
   }
+  .header__select {
+    width: 5rem;
+    border-radius: 0.5rem;
+  }
 `;

@@ -1,12 +1,13 @@
 // Header.js
 import React, { useState, useEffect } from 'react';
 import { MainHeader } from '../style/header';
-import Timer from './Timer'; // Timer 컴포넌트 import
+import Timer from './Timer';
 
-function Header() {
+function Header({ onLevelChange }) {
   const [activeButton, setActiveButton] = useState('게임');
   const [time, setTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
+  const [level, setLevel] = useState('level 1');
 
   useEffect(() => {
     let timer;
@@ -20,6 +21,13 @@ function Header() {
 
   const handleStart = () => setIsRunning(true);
   const handleStop = () => setIsRunning(false);
+
+  const handleLevelChange = (e) => {
+    setLevel(e.target.value);
+    if (onLevelChange) {
+      onLevelChange(e.target.value);
+    }
+  };
 
   return (
     <MainHeader>
@@ -44,7 +52,7 @@ function Header() {
       </div>
       {activeButton !== '랭킹' && (
         <div className="header__right">
-          <select>
+          <select value={level} onChange={handleLevelChange}>
             <option value="level 1">level 1</option>
             <option value="level 2">level 2</option>
             <option value="level 3">level 3</option>
