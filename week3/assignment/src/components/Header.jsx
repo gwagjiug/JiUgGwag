@@ -3,10 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { MainHeader } from '../style/header';
 import Timer from './Timer';
 
-function Header({ onLevelChange }) {
+function Header({ onLevelChange, time, setTime, isRunning }) {
   const [activeButton, setActiveButton] = useState('게임');
-  const [time, setTime] = useState(0);
-  const [isRunning, setIsRunning] = useState(false);
   const [level, setLevel] = useState('level 1');
 
   useEffect(() => {
@@ -17,10 +15,7 @@ function Header({ onLevelChange }) {
       }, 10);
     }
     return () => clearInterval(timer);
-  }, [isRunning]);
-
-  const handleStart = () => setIsRunning(true);
-  const handleStop = () => setIsRunning(false);
+  }, [isRunning, setTime]);
 
   const handleLevelChange = (e) => {
     setLevel(e.target.value);
