@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import React from 'react';
 import Header from '../components/Header';
-import Game from './Game';
-import Modal from '../components/Modal';
-import Ranking from './Ranking';
-
+import Game from '../pages/Game';
+import Modal from '../components/Game/Modal';
+import Ranking from '../pages/Ranking';
 function Main() {
   const [level, setLevel] = useState('level 1');
   const [isRunning, setIsRunning] = useState(false);

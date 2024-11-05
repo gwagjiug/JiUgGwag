@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MainHeader } from '../style/header';
-import Timer from './Timer';
+import Timer from './Game/Timer';
 
 function Header({ onLevelChange, time, setTime, isRunning, onPageChange }) {
   const [activeButton, setActiveButton] = useState('게임');
