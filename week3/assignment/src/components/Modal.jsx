@@ -1,7 +1,6 @@
-// Modal.js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ModalOverlay, ModalContent, CloseButton } from '../style/modal'; // styled-components로 변경한 파일을 import
+import { ModalOverlay, ModalContent, CloseButton } from '../style/modal';
 
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;

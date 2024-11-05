@@ -1,9 +1,8 @@
-// Header.js
 import React, { useState, useEffect } from 'react';
 import { MainHeader } from '../style/header';
 import Timer from './Timer';
 
-function Header({ onLevelChange, time, setTime, isRunning }) {
+function Header({ onLevelChange, time, setTime, isRunning, onPageChange }) {
   const [activeButton, setActiveButton] = useState('게임');
   const [level, setLevel] = useState('level 1');
 
@@ -24,6 +23,11 @@ function Header({ onLevelChange, time, setTime, isRunning }) {
     }
   };
 
+  const handleButtonClick = (page) => {
+    setActiveButton(page);
+    onPageChange(page === '게임' ? 'game' : 'ranking'); // 페이지 변경 함수 호출
+  };
+
   return (
     <MainHeader>
       <div className="header__left">
@@ -32,7 +36,7 @@ function Header({ onLevelChange, time, setTime, isRunning }) {
           className={`header__button ${
             activeButton === '게임' ? 'active' : ''
           }`}
-          onClick={() => setActiveButton('게임')}
+          onClick={() => handleButtonClick('게임')}
         >
           게임
         </button>
@@ -40,7 +44,7 @@ function Header({ onLevelChange, time, setTime, isRunning }) {
           className={`header__button ${
             activeButton === '랭킹' ? 'active' : ''
           }`}
-          onClick={() => setActiveButton('랭킹')}
+          onClick={() => handleButtonClick('랭킹')}
         >
           랭킹
         </button>
