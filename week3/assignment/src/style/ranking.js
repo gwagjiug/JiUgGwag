@@ -31,7 +31,7 @@ export const RankingHeader = styled.div`
 
   button {
     padding: 0.5rem 1rem;
-    background-color: #f0f0f0;
+    background-color: ${(props) => props.theme.colors.rankGray};
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -51,7 +51,7 @@ export const RankingTable = styled.table`
     color: black;
     text-align: center;
     padding: 1rem;
-    border-bottom: 2px solid #f0f0f0;
+    border-bottom: 2px solid ${(props) => props.theme.colors.rankGray};
   }
 
   th:nth-child(1) {
@@ -65,7 +65,7 @@ export const RankingTable = styled.table`
 
   td {
     padding: 1rem;
-    border: 1px solid #f0f0f0;
+    border: 1px solid ${(props) => props.theme.colors.rankGray};
     text-align: center;
   }
 `;

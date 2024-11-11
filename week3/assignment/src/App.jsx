@@ -2,10 +2,14 @@ import React from 'react';
 import './App.css';
 import 'normalize.css';
 import Main from './pages/Main';
+import { ThemeProvider } from 'styled-components';
+import { theme } from './style/theme';
 function App() {
   return (
     <>
-      <Main />
+      <ThemeProvider theme={theme}>
+        <Main />
+      </ThemeProvider>
     </>
   );
 }

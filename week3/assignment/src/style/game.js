@@ -1,18 +1,9 @@
-import styled, { css } from 'styled-components';
-
-const colors = {
-  background: '#ec8305',
-  titleColor: 'white',
-  buttonBackground: '#0b192c',
-  buttonHover: '#024caa',
-  blinkColor: '#d4f6ff',
-  buttonTextColor: 'white',
-};
+import styled from 'styled-components';
 
 export const MainContainer = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: ${colors.background};
+  background-color: ${(props) => props.theme.colors.background};
 `;
 
 export const MainTitle = styled.div`
@@ -23,7 +14,7 @@ export const MainTitle = styled.div`
 
   h1 {
     margin-top: 10rem;
-    color: ${colors.titleColor};
+    color: ${(props) => props.theme.colors.titleColor};
   }
 `;
 
@@ -47,13 +38,13 @@ export const GameContainer = styled.div`
     border-radius: 1rem;
     border: none;
     cursor: pointer;
-    background-color: ${colors.buttonBackground};
-    color: ${colors.buttonTextColor};
+    background-color: ${(props) => props.theme.colors.buttonBackground};
+    color: ${(props) => props.theme.colors.buttonTextColor};
     font-size: 1.5rem;
     transition: transform 0.1s ease;
 
     &:hover {
-      background-color: ${colors.buttonHover};
+      background-color: ${(props) => props.theme.colors.buttonHover};
     }
   }
 
@@ -61,7 +52,7 @@ export const GameContainer = styled.div`
     0%,
     50%,
     100% {
-      background-color: ${colors.blinkColor};
+      background-color: ${(props) => props.theme.colors.blinkColor};
     }
   }
 
