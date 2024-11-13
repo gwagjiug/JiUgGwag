@@ -1,5 +1,5 @@
 // Login.tsx
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { InputSection, MainBackground } from '../../styles/title';
 import Input from '../../component/common/Input/Input';
@@ -18,8 +18,12 @@ function Login() {
     <MainBackground>
       <InputSection>
         <Title type="로그인">
-          <Input type="text" placeholder="아이디를 입력하세요" />
-          <Input type="password" placeholder="비밀번호를 입력하세요" />
+          <Input type="text" placeholder="아이디를 입력하세요" name="userId" />
+          <Input
+            type="password"
+            placeholder="비밀번호를 입력하세요"
+            name="userPw"
+          />
           <Button text="로그인" />
           <Link text="회원가입" onClick={handleLinkClick} />
         </Title>

@@ -6,7 +6,7 @@ interface SmallLinkProps {
   onClick?: () => void;
 }
 
-const Link = ({ text, showDesc = false, onClick }: SmallLinkProps) => {
+const Link = ({ text, onClick }: SmallLinkProps) => {
   return (
     <Container>
       <LinkSection onClick={onClick}>{text}</LinkSection>

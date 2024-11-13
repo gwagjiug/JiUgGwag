@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 interface InputProps {
+  name: string;
   type: string;
   placeholder: string;
   value?: string;
@@ -24,10 +25,11 @@ const InputField = styled.input`
   padding-left: 0.5rem;
 `;
 
-function Input({ type, placeholder, value, onChange }: InputProps) {
+function Input({ name, type, placeholder, value, onChange }: InputProps) {
   return (
     <InputWrapper>
       <InputField
+        name={name}
         type={type}
         placeholder={placeholder}
         value={value}
