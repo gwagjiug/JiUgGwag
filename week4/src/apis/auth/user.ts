@@ -1,5 +1,5 @@
 import axios, { AxiosError } from 'axios';
-import axiosInstance from './axios';
+import axiosInstance from '../axios';
 
 export interface RegisterRequest {
   username: string;
