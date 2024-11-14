@@ -12,6 +12,7 @@ interface RenderStepParams {
   };
   passwordVisible: boolean;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  togglePasswordVisibility: () => void; // 비밀번호 가리기/보이기 토글 함수 추가
 }
 
 export const renderStepContent = ({
@@ -19,6 +20,7 @@ export const renderStepContent = ({
   formData,
   passwordVisible,
   handleInputChange,
+  togglePasswordVisibility, // 함수 전달
 }: RenderStepParams) => {
   switch (step) {
     case 1:
@@ -45,6 +47,8 @@ export const renderStepContent = ({
             placeholder="비밀번호를 입력해주세요"
             value={formData.password}
             onChange={handleInputChange}
+            passwordVisible={passwordVisible}
+            togglePasswordVisibility={togglePasswordVisibility}
           />
           <Input
             name="passwordConfirm"
@@ -52,6 +56,8 @@ export const renderStepContent = ({
             placeholder="비밀번호를 확인해주세요"
             value={formData.passwordConfirm}
             onChange={handleInputChange}
+            passwordVisible={passwordVisible}
+            togglePasswordVisibility={togglePasswordVisibility}
           />
           {formData.password.length > 8 && (
             <Message text="비밀번호는 8자리 이하로 입력해주세요." />

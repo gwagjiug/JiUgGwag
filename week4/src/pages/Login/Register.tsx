@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MainBackground, InputSection } from '../../styles/title';
 import Button from '../../component/common/Button/Button';
 import Link from '../../component/common/Link/Link';
@@ -11,8 +11,8 @@ import {
 import { renderStepContent } from '../../utils/register/renderStepContent';
 
 function Register() {
-  const { step, setStep, formData, setFormData, passwordVisible, navigate } =
-    useRegisterForm();
+  const { step, setStep, formData, setFormData, navigate } = useRegisterForm();
+  const [passwordVisible, setPasswordVisible] = useState(false);
 
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     handleInputChange(e, setFormData);
@@ -20,6 +20,10 @@ function Register() {
 
   const onNextStep = () => {
     handleNextStep({ step, formData, setStep, navigate });
+  };
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible((prev) => !prev);
   };
 
   const isButtonDisabled =
@@ -37,6 +41,7 @@ function Register() {
             formData,
             passwordVisible,
             handleInputChange: onInputChange,
+            togglePasswordVisibility,
           })}
           <Button
             text={step === 3 ? '회원가입' : '다음'}

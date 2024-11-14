@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 interface InputProps {
   name: string;
@@ -8,6 +9,8 @@ interface InputProps {
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   style?: React.CSSProperties;
+  passwordVisible?: boolean; // 비밀번호 가리기/보이기 상태
+  togglePasswordVisibility?: () => void; // 비밀번호 가리기/보이기 토글 함수
 }
 
 const InputWrapper = styled.div`
@@ -15,6 +18,7 @@ const InputWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 0.5rem;
+  position: relative;
 `;
 
 const InputField = styled.input`
@@ -26,16 +30,37 @@ const InputField = styled.input`
   padding-left: 0.5rem;
 `;
 
-function Input({ name, type, placeholder, value, onChange }: InputProps) {
+const IconWrapper = styled.div`
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+`;
+
+function Input({
+  name,
+  type,
+  placeholder,
+  value,
+  onChange,
+  passwordVisible,
+  togglePasswordVisibility,
+}: InputProps) {
   return (
     <InputWrapper>
       <InputField
         name={name}
-        type={type}
+        type={name === 'password' && passwordVisible ? 'text' : type}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
       />
+      {name === 'password' && togglePasswordVisibility && (
+        <IconWrapper onClick={togglePasswordVisibility}>
+          {passwordVisible ? <FaEyeSlash /> : <FaEye />}
+        </IconWrapper>
+      )}
     </InputWrapper>
   );
 }
