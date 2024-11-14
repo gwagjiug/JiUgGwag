@@ -9,7 +9,7 @@ const MessageContainer = styled.div`
   justify-content: flex-start;
   margin-bottom: 1rem;
   font-size: 0.8rem;
-  color: red;
+  color: brown;
 `;
 
 const Message: React.FC<MessageProps> = ({ text }) => {
