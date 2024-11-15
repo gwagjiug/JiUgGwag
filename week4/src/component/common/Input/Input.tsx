@@ -9,8 +9,8 @@ interface InputProps {
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   style?: React.CSSProperties;
-  passwordVisible?: boolean; // 비밀번호 가리기/보이기 상태
-  togglePasswordVisibility?: () => void; // 비밀번호 가리기/보이기 토글 함수
+  passwordVisible?: boolean;
+  togglePasswordVisibility?: () => void;
 }
 
 const InputWrapper = styled.div`

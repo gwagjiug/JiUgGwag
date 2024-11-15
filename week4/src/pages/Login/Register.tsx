@@ -28,6 +28,7 @@ function Register() {
 
   const isButtonDisabled =
     formData.username.length > 8 ||
+    formData.username.length < 1 ||
     formData.hobby.length > 8 ||
     formData.password.length > 8 ||
     formData.password !== formData.passwordConfirm;
