@@ -9,7 +9,7 @@ interface ButtonProps {
   disabled?: boolean;
 }
 
-const StyledButton = styled.button<{ hoverColor?: string; disabled?: boolean }>`
+const StyledButton = styled.button<{ hoverColor?: string }>`
   background-color: ${Theme.color.buttonColor};
   padding: 0.5rem 1rem;
   border: none;
@@ -30,15 +30,13 @@ const StyledButton = styled.button<{ hoverColor?: string; disabled?: boolean }>`
           `}
   }
 
-  ${({ disabled }) =>
-    disabled &&
-    css`
+  &:disabled {
+    background-color: #dcdcdc;
+    cursor: not-allowed;
+    &:hover {
       background-color: #dcdcdc;
-      cursor: not-allowed;
-      &:hover {
-        background-color: #dcdcdc;
-      }
-    `}
+    }
+  }
 `;
 
 const Button: React.FC<ButtonProps> = ({
