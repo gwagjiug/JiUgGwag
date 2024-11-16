@@ -24,7 +24,7 @@ export const editProfile = async (
     if (response.data.code === '00') {
       throw new Error('업데이트에 실패했습니다.');
     } else {
-      console.log('프로필이 성공적으로 업데이트되었습니다.');
+      alert('프로필이 성공적으로 업데이트 되었습니다.');
     }
   } catch (error) {
     if (axios.isAxiosError(error)) {

@@ -26,7 +26,7 @@ export const handleNextStep = async ({
   } else if (step === 3) {
     try {
       const response = await registerUser(formData);
-      console.log('회원가입 성공:', response);
+
       navigate('/');
     } catch (error) {
       console.error(error instanceof Error ? error.message : '에러 발생');

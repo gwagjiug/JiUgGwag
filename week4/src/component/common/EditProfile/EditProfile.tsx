@@ -33,8 +33,6 @@ function EditProfile() {
       } else {
         await editProfile('', hobby);
       }
-
-      alert('정보가 성공적으로 업데이트되었습니다.');
     } catch (err) {
       setError(err instanceof Error ? err.message : '알 수 없는 오류 발생');
     } finally {
